@@ -1,0 +1,303 @@
+<!-- =======================Blog structure -->
+<template name="talk">
+	<div class="row">{{>yield region="postTitle"}}</div>
+	<div>{{>yield region="toolbar"}}</div>
+
+	<div class="row">{{>yield region="text-segment"}}</div>
+	<div>{{>yield region="video"}}</div>
+	<div>{{>yield region="image-text-container"}}</div>
+	<div>{{>yield region="text-segment"}}</div>
+	<div>{{>yield region="image-container"}}</div>
+
+
+	<style> 
+		.aside {
+			outline: 1px solid #e5e8e8;
+			background: #f8f8f8;
+			margin-bottom: 30px;
+			padding: 20px;
+			font-family: 'ZurichBT-Roman';}
+			.aside-text {
+				float: none;
+				width: 100%;
+				text-align: left;
+				font-size: 0.765em;
+				display: block;
+				-webkit-margin-before: 1em;
+				-webkit-margin-after: 1em;
+				-webkit-margin-start: 0px;
+				-webkit-margin-end: 0px;
+			}
+			a:focus {
+				utline: thin dotted; 
+			}
+			a:hover {
+				text-decoration:inherit;
+			}
+
+			.header-content .header-content-position {
+				padding: 0 0 0 25px;
+			}
+			.entry-header .header-content {
+				position: absolute;
+				height: 100%;
+
+				text-align: left;
+				color: white;
+			}
+			.entry-header .header-content h1 { 
+				margin: 0 0 35px 0;
+				text-transform: uppercase;
+				font-size: 2.5em;
+				font-family: 'ZurichBT-Roman';
+				font-weight: normal;
+				max-width: 480px;
+				font-size: 4.000em;
+				line-height: 1.03em;
+			}
+
+			.entry-header .gradient {
+				height: 100%;
+				width: 50%;
+				background-color: rgba(0,0,0,0.8) 0;
+				background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,0.8) 0),to(rgba(0,0,0,0) 100%));
+				background-image: -webkit-linear-gradient(left,rgba(0,0,0,0.8) 0,rgba(0,0,0,0) 100%);
+				background-image: -moz-linear-gradient(left,rgba(0,0,0,0.8) 0,rgba(0,0,0,0) 100%);
+				background-image: -ms-linear-gradient(left,rgba(0,0,0,0.8) 0,rgba(0,0,0,0) 100%);
+				background-image: -o-linear-gradient(left,rgba(0,0,0,0.8) 0,rgba(0,0,0,0) 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6000000',endColorstr='#00000000',GradientType=1);
+			} }
+		</style>
+</template>
+
+
+	<!-- =======================Post Background  =========================== -->
+
+
+<template name='postTitle'>
+<script src="mediaelement-and-player.min.js"></script>
+<link rel="stylesheet" href="mediaelementplayer.css" />
+<div class="header full-width entry-header" id="home">
+<div class="header__background">
+	<video class="header__video" min-height="80%" id="player1" poster="{{this.photo}}" preload="" controls>
+		<source src="../video/papadreou.mp4" type="video/mp4"></video>
+		</div> 
+		<div class="header__content-wrapper inner">
+			<div class="header-content">
+				<div class="header-content-position">
+					
+					<h1 class="entry-title">{{this.title}}</h1>
+					<div class="row">
+					<div style="font-weight: 900;font-size: 18px;" class="col-xs-8 col-sm-8 col-md-8 col-lg-6">	
+					{{this.summary}}</div>	
+					</div>
+					<div class="row" style="padding:15px">
+					<a id ="buttonStart" class="playbutton" href="#">Play</a>
+					<a id ="buttonPause" class="playbutton" href="#">Pause</a>
+					</div>
+					
+				</div>
+			</div> 
+		</div>
+	
+<style type="text/css" media="screen">
+.playbutton {
+	display: inline-block;
+padding: 0 32px;
+height: 60px;
+border: none;
+border-radius: 3px;
+background: #0097db;
+color: #fff;
+vertical-align: middle;
+font-weight: 500;
+font-size: 18px;
+line-height: 60px;
+-webkit-transition: background .2s;
+transition: background .2s;
+}	
+</style>
+
+	<div class="talk-hero__tools">
+		<div class="talk-hero__tools__list">
+			<div class="talk-hero__tools__list__actions module">
+				<a class="talk-hero__tools__tool watch-later-button" href="#">
+					<i class="icon icon_plus talk-hero__tools__icon watch-later-button__icon"></i>
+					<span class="watch-later-button__label">
+						Επιχειρήματα
+					</span>
+				</a>
+				<a class="talk-hero__tools__tool favorite-button" href="#">
+					<i class="icon icon_minus talk-hero__tools__icon favorite-button__icon"></i>
+					<span class="favorite-button__label">
+					</span>
+				</a>
+				<br>
+				<br>
+				<a id ="buttonReplay" class="talk-hero__tools__tool download-button" href="#" onclick="video.stop()">
+					<i class="icon icon_plus talk-hero__tools__icon"></i>
+					<span>Ειλικρίνεια</span>
+				</a>
+				<a id ="buttonMute" class="talk-hero__tools__tool rate-button" href="#">
+					<i class="icon icon_minus talk-hero__tools__icon"></i>
+					<span></span>
+				</a>
+			</div>
+		</div>
+	</div>
+	</div> 
+</template>
+
+
+
+
+<!-- =======================Video segment-->
+<template name='video'>
+	<header class="header full-width" id="home">
+		<iframe class="header__video video-stream html5-main-video" x-webkit-airplay="allow" src="https://www.youtube.com/embed/WA8sLsM3McU?&version=3&modestBranding=1&rel=0&showinfo=0"></iframe>
+
+		<div>{{>yield region="intro"}}</div>
+	</header> 
+</template>
+
+
+
+<!-- =======================Text segment -->
+
+<template name="text-segment">
+	<style>
+		li {list-style: initial;}
+	</style>
+	<section class="segment text-segment clearfix">
+		<div class="only-text">
+			<h2>{{this.title}}</h2>
+			<p id="annotate">{{this.paragraphSecond}}</p>
+<!-- 			<p>Paragraph2</p>
+			<p>Paragraph3</p>
+			<ul>
+				<li><a title="http://www.visita.se/" href="http://www.visita.se/">URL1</a> – Text</li>
+				<li><a title="http://www.svenskhandel.se/" href="http://www.svenskhandel.se/">URL2</a> – Text</li>
+				<li><a title="http://www.bygg.org/" href="http://www.bygg.org/">URL3</a> – Text</li>
+			</ul> -->
+		</div>
+	</section>
+</template>
+
+<template name="image-container">
+	<section class="segment media-segment clearfix">
+		<div class="only-image ">
+			<img alt="{{secondPhotoText}}" title="{{secondPhotoText}}" src="{{this.secondPhoto}}"><div class="image-text-container">
+
+		</div><div class="image-description"></div>{{secondPhotoText}}</div>  
+	</section>
+
+
+</template>
+
+			<!-- =======================Image - Text segment -->
+
+
+<template name="image-text-container">
+	<section class="segment media-segment clearfix">
+		<div class="only-image fit-column">
+			<img src="{{this.photo}}"/>
+			<div class="image-text-container aside">
+				<div class="aside-text"><p>{{photoText}}
+
+						<a title="imgSourceUrl">{{photoUrl}}</a></p>
+					</div>
+					<div class="image-description">
+					</div>
+				</div> 
+			</div>
+		</section> 
+	</template>
+
+
+
+
+
+
+
+	<template name="toolbar">
+		<div class="talk-top__tools">
+			<div class="talk-sharing" id="sharing">
+				<div class="talk-sharing__global">
+					<div class="talk-sharing__tools">
+						<a class="talk-sharing__tool talk-sharing__watch-later watch-later-button" href="#">
+							<i class="icon icon_circle-watchlater watch-later-button__icon watch-later-button__icon--reverse"></i><span class="screen-reader-text">Watch Later</span>
+						</a>
+						<a class="talk-sharing__tool talk-sharing__download download-button" href="#">
+							<i class="icon icon_circle-download "></i><span class="screen-reader-text">Download</span>
+						</a>
+						<a class="talk-sharing__tool talk-sharing__rate rate-button" href="#">
+							<i class="icon icon_circle-rate "></i><span class="screen-reader-text">Rate</span>
+						</a>
+						<a class="talk-sharing__tool talk-sharing__twitter talk-sharing__link ga-link" data-service-label="Twitter" data-service-name="twitter" href="http://twitter.com/intent/tweet?url={{currentUrl}}&amp;text=Κρίνε τους Υποψήφιους:{{this.summary}}" target="_blank">
+							<i class="icon icon_circle-twitter "></i><span class="screen-reader-text">Share on Twitter</span>
+						</a>
+						<a class="talk-sharing__tool talk-sharing__facebook talk-sharing__link ga-link" data-service-label="Facebook" data-service-name="facebook" href="http://www.facebook.com/sharer/sharer.php?u={{currentUrl}}" target="_blank">
+							<i class="icon icon_circle-facebook "></i><span class="screen-reader-text">Share via Facebook</span>
+						</a>
+						<a class="talk-sharing__tool talk-sharing__email talk-sharing__link ga-link" data-service-label="Email" data-service-name="email" href="http://api.addthis.com/oexchange/0.8/forward/email/offer?url={{currentUrl}}&amp;title=Κρίνε τους Υποψήφιους:{{this.summary}}" target="_blank">
+							<i class="icon icon_circle-facebook "></i><span class="screen-reader-text">Share by Email</span>
+						</a>
+						<a class="talk-sharing__tool talk-sharing__other" href="#" id="sharing-other">
+							<i class="icon icon_circle-more "></i><span class="screen-reader-text">Other sharing services</span>
+						</a>
+					</div>
+					<div class="talk-sharing__count" id="sharing-count">
+						<span class="talk-sharing__value">
+							{{this.viewCounts}}
+						</span>
+						<span class="talk-sharing__label">
+							<span class="talk-sharing__label__block">
+								Total
+							</span>
+							<span class="talk-sharing__label__block">
+								views
+							</span>
+						</span>
+					</div>
+					<div class="talk-sharing__count" id="sharing-count">
+						<span class="talk-sharing__value">
+							{{this.viewCounts}}
+						</span>
+						<span class="talk-sharing__label">
+							<span class="talk-sharing__label__block">
+								Πόντοι 
+							</span>
+							<span class="talk-sharing__label__block">
+								Επιχειρηματολογιας
+							</span>
+						</span>
+					</div>	
+					<div class="talk-sharing__count" id="sharing-count">
+						<span class="talk-sharing__value">
+							{{this.viewCounts}}
+						</span>
+						<span class="talk-sharing__label">
+							<span class="talk-sharing__label__block">
+								Ποντοι   
+							</span>
+							<span class="talk-sharing__label__block">
+								Ειλικρινειας  
+							</span>
+						</span>
+					</div>											
+<!-- 					<script>q("talkPage.initBreakdown",[{"label":"TED.com","value":46},{"label":"TED apps","value":17},{"label":"iTunes","value":36},{"label":"Other","value":1}]);</script>
+					<div class="talk-sharing__your-impact">
+						<div class="talk-sharing__your-impact__barchart">
+							<i class="icon icon_barchart "></i><span class="screen-reader-text">Your impact</span>
+						</div>
+						<div class="talk-sharing__label">
+							<div class="talk-sharing__label__block">Share this talk and</div>
+							<div class="talk-sharing__label__block">track your influence!</div>
+						</div>
+					</div> -->
+				</div>
+			</div>
+
+			<div id="sponsorship-bug-placeholder"></div>
+		</div> 
+	</template>
